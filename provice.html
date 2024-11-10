@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        $(document).ready(function() {
+            // Xử lý nhấp chuột cho dropdown "Viết Ngay"
+            $('#write-now').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-blog');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Xử lý nhấp chuột cho dropdown "Thông Báo"
+            $('.header-navbar-list-item-noti > a').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-item-notification');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Xử lý nhấp chuột cho dropdown "Người Dùng"
+            $('#user-icon').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-user');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Hiện modal tìm kiếm khi nhấp vào ô tìm kiếm
+            $('#searchBox').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                $('#searchModal').modal('show');
+            });
+    
+            // Ẩn dropdown khi nhấp ra ngoài
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.header-navbar-list-item').length) {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                }
+            });
+        });
+        
+        $(document).ready(function(){
+    // Lặp qua tất cả các item trong carousel
+    
+});
+    </script>
+</head>
+<body>
+    <header id="header">
+        <div class="container-fluid">
+            <div class="header-logo">
+                <a href="" class="header-logo-link">
+                    <img src="/assets/img/logo-new.jpg" alt="" class="header-logo-img">
+                </a>
+            </div>
+            <div class="header-navbar">
+                <div class="header-navbar-search" id="searchBox">
+                    <label for="" class="header-navbar-search-label">
+                        <span class="header-navbar-search-label-text">
+                            Bạn muốn đi đâu?
+                        </span>
+                        <div class="header-navbar-search-box">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="header-navbar-right">
+                    <ul class="header-navbar-list">
+                        <li class="header-navbar-list-item"><a href="https://fullstack.edu.vn/" class="header-navbar-list-item-link">
+                            <i class="fas fa-globe-asia "></i>
+                            <p class="header-navbar-list-item-content">Điểm Đến</p>
+                        </a></li>
+                        <li class="header-navbar-list-item header-navbar-list-item-blog">
+                            <a href="#" class="header-navbar-list-item-link" id="write-now">
+                                <i class="fas fa-pen-fancy"></i>
+                                <p class="header-navbar-list-item-content">Viết Ngay</p>
+                            </a>
+                            <ul class="header-navbar-list-blog" style="display: none;">
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link header-navbar-list-blog-link-main">
+                                        <i class="far fa-edit"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ trải nghiệm & review</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-image"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ hình ảnh</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-images"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ hình từ Facebook</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-question-circle"></i>
+                                        <p class="header-navbar-list-blog-content">Hỏi đáp du lịch</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="fas fa-handshake"></i>
+                                        <p class="header-navbar-list-blog-content">Lập & chia sẻ hành trình</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header-navbar-list-item header-navbar-list-item-noti"><a href="#" class="header-navbar-list-item-link">
+                            <i class="fas fa-bell"></i>
+                            <p class="header-navbar-list-item-content">Thông Báo</p>
+                        </a>
+                        <div class="header-navbar-list-item-notification">
+                            <div class="header-navbar-list-item-notification-menu">
+                                <button class="btn btn-default fl-1 bn active">Tất cả </button>
+                                <button class="btn btn-default fl-1 bn">Ưa thích </button>
+                                <button class="btn btn-default fl-1 bn">Gần đây </button>
+                            </div>
+                            <ul class="header-navbar-list-item-notification-content" id="notification-icon">
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        </li>
+                        <li class="header-navbar-list-item header-navbar-list-item-user">
+                            <div class="header-navbar-list-item-link header-navbar-list-item-link-user" id="user-icon">
+                                <img class="header-navbar-list-item-user-img" src="/assets/img/avata.jpg" alt="">
+                                <p class="header-navbar-list-item-content">Hiếu</p>
+                            </div>
+                            <ul class="header-navbar-list-user">
+                                <li class="header-navbar-list-user-item">
+                                    <p class="header-navbar-list-user-link">Trang cá nhân</p>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">My Travel Map</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Ví du lịch</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Đơn Hàng & Đặt chỗ</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Cài đặt tài khoản</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link header-navbar-list-user-link-out">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- model nếu code header copy cả cái này -->
+    <div class="modal fade" id="searchModal" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" class="form-control" placeholder="Địa điểm bạn muốn tìm?" aria-label="Tìm kiếm">
+                    <div class="modal-header-icon">
+    
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <!-- Sponsored Item -->
+                    <div class="modal-body-service ">
+                        <img src="/assets/img/avata.jpg" alt="sponsor" class="modal-body-service-img">
+                        <div class="">
+                            <strong>Dịch Vụ Làm Mới & Làm Lại Hộ Chiếu</strong>
+                            
+                            <p class="modal-body-service-content">Nhanh, Uy Tín, Online, Giá Rẻ <span class="modal-body-service-img-des">Được Tài Trợ</span></p>
+                        </div>
+                    </div>
+    
+                    <!-- Popular Searches Section -->
+                    <h6 class="modal-content-search">Tìm kiếm nhiều</h6>
+                    <div class="row">
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                         
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item"><div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="blog-box-main">
+    <div class="container blog-box">
+        <h2 class="blog-title">
+            Măng Đen Nơi Lưu Giữ Những Dấu Chân
+        </h2>
+        <aside class="row row-main">
+            <div class="col-xl-3 blog-site-left">
+                <div class="blog-site-name">
+                    <li class="blog-item"><a href="" class="blog-item-link blog-item-link-first-child">Giới thiệu <span class="blog-item-link-right">></span></a></li>
+                    <li class="blog-item"><a href="" class="blog-item-link">Kinh nghiệm du lịch    <span class="blog-item-link-right">></span></a></li>
+                    <div class="blog-site-name-header">
+                        An Giang
+                    </div>
+                </div>
+                <img src="/assets/img/banner.png" alt="" class="blog-site-left-img">
+            </div>
+            <div class="col-xl-9 provice-box">
+                <h2 class="provice-name">
+                    An Giang
+                </h2>
+                <p class="provie-des">
+                    An Giang được xem là vùng đất linh thiêng với sự nổi tiếng của miếu bà chúa Xứ. Sự nổi tiếng của miếu bà đôi khi “lấn át” suy nghĩ của du khách về những cảnh đẹp khác, ở An Giang còn có nhiều địa điểm rất khác đáng đến. Và ngày nay, đến du lịch vùng đất An Giang người ta không chỉ nhắc đến những chuyến hành hương về chùa Châu Đốc mà còn là những chuyến du ngoạn khám phá những địa điểm du lịch nổi tiếng khác. Những rừng tràm xanh biếc hay vườn quốc gia U  minh thật sự rất đáng để bạn đặt chân đến khám phá.
+                </p>
+                <div class="provie-box-img">
+                    <h4 class="provie-box-img-title">
+                        Hình ảnh du lịch An Giang
+                    </h4>
+                    <img src="https://media2.gody.vn/public/mytravelmap/images/2021/4/7/long.hosy25960/a29e6f206022ae924648aa120dd4f3e4b54096b7.jpg" alt="" class="provie-box-img-img">
+                    <p class="provie-box-img-des">
+                        An Giang là điểm du lịch hấp dẫn tại miền Tây Nam Bộ với nhiều du khách với cảnh quan rừng ngập mặn hấp dẫn, nổi tiếng về miếu bà chúa Xứ. Du lịch An Giang du khách còn được chiêm ngưỡng đời sống dân dã của bà con miền sông nước, không khí miền quê thanh bình. Không khí lễ hội đặc sắc khi đi du lịch An Giang cũng chính là điểm hấp dẫn rất nhiều du khách khắp bốn phương.
+                    </p>
+                </div>
+                <div class="provie-recommend-box">
+                    <div class="provie-recommend-box-list">
+                        <h3 class="provie-recommend-box-list-title">
+                            Giới thiệu về An Giang
+                        </h3>
+                        <p class="provie-recommend-box-list-content">
+                            An Giang là một tỉnh miền Tây Nam Bộ, có diện tích tự nhiên là, có đường biên giới dài 96km giáp với Campuchia. Cách TPHCM khoản 187km, cách Cần Thơ khoản 109 km. An Giang còn được mệnh danh là “vùng thất sơn bảy núi”, với 7 ngọn núi cao nằm trong tỉnh An Giang. Trong đó có khu vực núi Sam là ngọn núi thờ bà chúa Xứ linh thiêng, nổi tiếng gần xa. 
+
+Trong hơn thập kỷ gìn giữ đất nước, An Giang trải qua nhiều giai đoạn từ đó mà hình thành nên một An Giang đầy nét hấp dẫn như hiện tại. Xưa kia An Giang thuộc ảnh hưởng của vùng đất Chân Lạp. Sau được quốc vương Chân Lạp dâng cho chúa Nguyễn nhưng trong cả 2 thời kỳ này, vùng đất An Giang còn nhiều hoang hoá, ít dân cư sinh sống. Đến thời vua Gia Long mới được dân cư đến khai hoá, định cư lập xã, làng,... buôn bán sầm uất và trở thành một trong 6 tỉnh đầu tiên của đất Nam Kỳ lục tỉnh vào thời Nguyễn độc lập. 
+
+Thời tiết, khí hậu tại An Giang rất phù hợp cho du khách du lịch có thể tham quan An Giang tất cả các thời điểm trong năm. Với không khí và thời tiết của miền Nam mát mẻ, có 2 mùa rõ rệt  vào mùa mưa ở An Giang kéo dài từ tháng 5 đến tháng 11 do đó đi vào thời điểm này du khách đừng quên mang theo áo mưa. 
+                        </p>
+
+                    </div>
+                    <div class="provie-recommend-box-list">
+                        <h3 class="provie-recommend-box-list-title">
+                            Thông tin cần biết về An Giang
+                        </h3>
+                        <p class="provie-recommend-box-list-content">
+                            Dân số: 1.913.210 người (2022)<br>
+Diện tích: 3537 km2<br>
+Biển số xe: 67<br>
+Mã vùng điện thoại: 0296<br>
+Mã QH: 883<br>
+Mã bưu chính/ Zip: 90000
+                        </p>
+                        
+                    </div>
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Du lịch An Giang có gì hay? có gì đẹp?
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        Tỉnh An Giang có nhiều địa điểm du lịch hấp dẫn như rừng ngập mặn nổi tiếng, cánh đồng lúa bạt ngàn cùng với các hàng thốt nốt cao vút, những vườn cây ăn trái trĩu quả. Là điểm thu hút khách khi đến với An Giang với không khí miền quê giản dị, những con đường rợp bóng cây xanh giữa cù lao.. là nơi du lịch hấp dẫn cho du khách với các văn hóa, con người, ẩm thực hay lễ hội hấp dẫn… 
+                    </p>
+
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Văn hóa, con người
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        Là nơi sinh sống của 29 dân tộc anh em sinh sống, văn hóa tại An Giang hòa hợp từ nhiều khía cạnh văn hóa khác nhau, hài hòa đặc sắc nhất của văn hóa dân tộc Chăm, Khmer và Việt với nhiều phong tục, tập quán, văn hóa truyền thống hấp dẫn trong du lịch.
+
+An Giang là điểm đến lý tưởng của du khách với 5 di sản phi vật thể quốc gia là: Nghi lễ vòng đời của người Chăm Islam, Lễ hội Vía Bà Chúa Xứ núi Sam, hội đua bò Bảy Núi, lễ hội Kỳ Yên tại đình thần Thoại Ngọc Hầu ( ở huyện Thoại Sơn), tri thức và kỹ thuật viết chữ trên lá buông của đồng bào dân tộc thiểu số Khmer. 
+
+Con người An Giang vẫn mang nhiều nét đặc trưng dân dã của người miền Nam Bộ, hòa đồng, hiếu khách, đôn hậu. Du khách khi đến với An Giang sẽ dễ dàng nhìn thấy được sự vui tươi, trong sáng của những con người An Giang. Họ sẵn sàng giúp đỡ, tận tình đưa du khách đến nơi mà khách muốn.
+                    </p>
+
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Thời tiết, khí hậu
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        An Giang có vị trí nằm gần xích đạo nên khí hậu có nhiều nét tương đồng với khí hậu xích đạo. Khí hậu An Giang có 2 mùa rõ rệt là mùa khô và mùa mưa. Du lịch An Giang vào mùa khô ráo thoáng mát từ tháng 12 đến tháng 4 năm sau là một lựa chọn khá hợp lý.
+
+Nhiệt độ tại nơi đây khá ổn định, chỉ giao động khoảng từ 26 đến 28 độ, vào các mùa khác nhau mà An Giang đều mang đến nét đẹp riêng biệt. Tuy nhiên, du khách có thể trải nghiệm lễ hội vía bà Chúa Xứ rất lớn tại đây (vào 23/4 - 27/4) hay lễ hội đua bò hấp dẫn vào cuối tháng 8 hàng năm.
+                    </p>
+
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Ẩm thực
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        Là điểm đến được rất nhiều du khách lựa chọn khi đi du lịch miền Tây Nam Bộ, với nguồn thực phẩm được nuôi trồng tại địa phương với nguồn thức ăn sạch tại chỗ hay các loại rau miền quê dân dã. Khi du lịch An Giang, du khách không chỉ tham quan, viếng thăm các địa điểm du lịch nổi tiếng mà còn có thể thưởng thức các món ăn ngon độc đáo.
+
+                        Các món ăn mang đậm phong cách của miền đất dân dã An Giang phải kể đến như: Bún cá Món bún cá Châu Đốc và bún cá Long Xuyên là món ăn trứ danh của vùng đất An Giang, canh chua mùa nước nổi, bánh tằm bì Tân Châu, xôi phồng Chợ Mới, lẩu mắm Châu Đốc, bò bảy món Núi Sam, cơm tấm Long Xuyên, bánh xèo rau rừng,...
+                    </p>
+
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Lễ hội
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        Với sự đặc sắc và đa dạng của nhiều dân tộc tại An Giang. Có rất nhiều lễ hội đầy màu sắc được tổ chức vào các thời điểm khác nhau trong năm tại An Giang, du khách khi đến đâu vào các dịp lễ hội có thể hòa mình vào không khí nhộn nhịp của các hội vui nhộn, các nghi lễ tâm linh của vùng Nam bộ trang nghiêm để có thể có cái nhìn đa chiều hơn về văn hóa tôn giáo trên đất nước mình.
+
+Lễ hội miếu Bà Chúa Xứ: được tổ chức vào ngày 23/4 - 27/4 âm lịch hàng năm. Là một trong những lễ hội lớn tại An Giang. Lễ hội được nhân dân đông đảo hưởng ứng mạnh mẽ và thời gian kéo dài khá lâu với đặc điểm nổi bật của lễ là lễ tắm bà chúa. Lễ hội miếu Bà còn được gọi với cái tên “Mùa lễ hội” ý chỉ sự sung túc, nhộn nhịp của khắp địa bàn khu vực núi Sam. 
+                    </p>
+
+                </div>
+                <div class="provie-recommend-box-list">
+                    <h3 class="provie-recommend-box-list-title">
+                        Các điểm du lịch nổi tiếng
+                    </h3>
+                    <p class="provie-recommend-box-list-content">
+                        Khi đến du lịch tại An Giang dân dã, du khách sẽ được chiêm ngưỡng khung cảnh thiên nhiên nên thơ, tươi mới, mát rượi của rừng tràm Trà Sư, đắm chìm vào nét thơ của các đỉnh núi xanh bạt ngàn. Du khách còn có thể thả hồn vào các câu chuyện tâm linh, viếng thăm vùng Thất Sơn tâm linh đầy huyền bí. 
+                    </p>
+
+                </div>
+            </div>
+        </aside>
+    </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row footer-body-box">
+                <div class="col-xl-4">
+                    <div class="footer-body">
+                        <img src="/assets/img/logo-new.jpg" alt="" class="footer-body-img">
+                        
+                        <div class="footer-contact-list">
+                            <a href="" class="footer-contact-link footer-contact-link-fb">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="" class="footer-contact-link footer-contact-link-yt">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="" class="footer-contact-link footer-contact-link-ig">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <h4 class="footer-body-header">Về Gody</h4>
+                        <ul class="footer-body-list">
+                        <p class="footer-item-link">CÔNG TY CỔ PHẦN GODY</p>
+                        <p class="footer-item-link">2/24 Đoàn Thị Điểm, Phường 01, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam</p>
+                        </ul>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <h4 class="footer-body-header">Liên hệ</h4>
+                        <ul class="footer-body-list">
+                            <p class="footer-item-link">Hotline: 0985.172.470</p>
+                        <p class="footer-item-link">Email: hi@gody.vn</p>  
+                        </ul>
+                    
+                </div>
+                
+                
+            </div>
+          
+            
+        </div>
+        
+        <div class="container-fluid footer-end">
+            © Toàn bộ bản quyền thuộc Nhóm 1. Cấm sao chép dưới mọi hình thức.
+        </div>
+    </footer> 
+
+</body>
+</html>
